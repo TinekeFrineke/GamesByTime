@@ -15,7 +15,7 @@ std::wstring QuestForGlory1Strategy::GetFileToSave(const std::wstring& path, con
     std::filesystem::path filepath(path);
     filepath /= filename;
 
-#define BINARY
+//#define BINARY
 #ifdef BINARY
     constexpr auto buffersize(2048);
 
@@ -29,9 +29,8 @@ std::wstring QuestForGlory1Strategy::GetFileToSave(const std::wstring& path, con
         if (wline.find(L"Begin") != std::wstring::npos)
             break;
     }
-
-
-#else
+    return std::wstring();
+#elif defined(NONBINARY)
     std::wifstream input(filepath.wstring());
     if (!input.is_open())
         throw std::runtime_error("Error opening file " + filepath.string());
@@ -40,6 +39,14 @@ std::wstring QuestForGlory1Strategy::GetFileToSave(const std::wstring& path, con
     while (std::getline(input, line))
         if (line.find(L"Begin") != std::wstring::npos)
             break;
-#endif
     return std::wstring();
+#else
+    const auto position = filename.find(L'.');
+    if (position == std::wstring::npos)
+        throw std::runtime_error("Wrong filename: " + filepath.string());
+    const std::wstring extension = filename.substr(position + 1);
+
+    const int rank = std::wcstol(extension.c_str(), 0, 10);
+    return std::to_wstring(rank);
+#endif
 }
