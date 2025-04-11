@@ -1,5 +1,5 @@
 
-// LandsOrLOreAlphabetDlg.cpp : implementation file
+// GamesByDateDlg.cpp : implementation file
 //
 
 #include "pch.h"
@@ -14,8 +14,8 @@
 #include "framework.h"
 #include "GameDefinitions.h"
 #include "IStrategy.h"
-#include "LandsOrLOreAlphabet.h"
-#include "LandsOrLOreAlphabetDlg.h"
+#include "GamesByDate.h"
+#include "GamesByDateDlg.h"
 #include "afxdialogex.h"
 #include "resource.h"
 #include "StrategyFactory.h"
@@ -26,11 +26,6 @@
 #endif
 
 namespace {
-	std::map<Game, std::wstring> games = {
-		{ Game::LandsOfLore, ToString(Game::LandsOfLore) },
-		{ Game::BetrayalAtKrondor, ToString(Game::BetrayalAtKrondor) },
-		{ Game::PlanescapeTorment, ToString(Game::PlanescapeTorment) }
-	};
 
 	std::wstring InifileName()
 	{
@@ -145,6 +140,7 @@ BOOL CLandsOrLOreAlphabetDlg::OnInitDialog()
 	SetIcon(m_hIcon, TRUE);			// Set big icon
 	SetIcon(m_hIcon, FALSE);		// Set small icon
 
+	const auto games{ allGames() };
 	for (auto game: games)
 		m_GameCombo.AddString(game.second.c_str());
 

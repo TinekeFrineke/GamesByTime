@@ -4,8 +4,8 @@
 
 #include "pch.h"
 #include "framework.h"
-#include "LandsOrLOreAlphabet.h"
-#include "LandsOrLOreAlphabetDlg.h"
+#include "GamesByDate.h"
+#include "GamesByDateDlg.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW

@@ -89,7 +89,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -111,7 +111,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -134,7 +134,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -160,7 +160,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -193,10 +193,14 @@
     <ClInclude Include="GameSavesDialog.h" />
     <ClInclude Include="IStrategy.h" />
     <ClInclude Include="LandsOfLoreStrategy.h" />
-    <ClInclude Include="LandsOrLOreAlphabet.h" />
-    <ClInclude Include="LandsOrLOreAlphabetDlg.h" />
+    <ClInclude Include="GamesByDate.h" />
+    <ClInclude Include="GamesByDateDlg.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="PlanescapeTormentStrategy.h" />
+    <ClInclude Include="QuestForGlory1Strategy.h" />
+    <ClInclude Include="QuestForGlory2Strategy.h" />
+    <ClInclude Include="QuestForGlory3Strategy.h" />
+    <ClInclude Include="QuestForGlory4Strategy.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Settings.h" />
     <ClInclude Include="Strategy.h" />
@@ -209,28 +213,32 @@
     <ClCompile Include="GameDefinitions.cpp" />
     <ClCompile Include="GameSavesDialog.cpp" />
     <ClCompile Include="LandsOfLoreStrategy.cpp" />
-    <ClCompile Include="LandsOrLOreAlphabet.cpp" />
-    <ClCompile Include="LandsOrLOreAlphabetDlg.cpp" />
+    <ClCompile Include="GamesByDate.cpp" />
+    <ClCompile Include="GamesByDateDlg.cpp" />
     <ClCompile Include="pch.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="PlanescapeTormentStrategy.cpp" />
+    <ClCompile Include="QuestForGlory1Strategy.cpp" />
+    <ClCompile Include="QuestForGlory2Strategy.cpp" />
+    <ClCompile Include="QuestForGlory3Strategy.cpp" />
+    <ClCompile Include="QuestForGlory4Strategy.cpp" />
     <ClCompile Include="Settings.cpp" />
     <ClCompile Include="Strategy.cpp" />
     <ClCompile Include="StrategyFactory.cpp" />
     <ClCompile Include="StrategyUtilities.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="LandsOrLOreAlphabet.rc" />
+    <ResourceCompile Include="GamesByDate.rc" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="res\LandsOrLOreAlphabet.rc2" />
+    <None Include="res\GamesByDate.rc2" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="res\LandsOrLOreAlphabet.ico" />
+    <Image Include="res\GamesByDate.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
