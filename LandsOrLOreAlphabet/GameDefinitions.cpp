@@ -3,26 +3,40 @@
 
 #include "GameDefinitions.h"
 
+#include <map>
 #include <stdexcept>
 
-std::wstring ToString(Game game) {
-	switch (game) {
-	case Game::LandsOfLore:
-		return _T("LandsOfLore");
-	case Game::BetrayalAtKrondor:
-		return _T("BetrayalAtKrondor");
-	case Game::PlanescapeTorment:
-		return _T("PlanescapeTorment");
-	default:
-		throw std::runtime_error("Unreachable code reached");
-	}
+
+namespace {
+std::map <Game, std::wstring> gamesList = {
+    { Game::LandsOfLore, L"LandsOfLore" },
+    { Game::BetrayalAtKrondor, L"BetrayalAtKrondor" },
+    { Game::PlanescapeTorment, L"PlanescapeTorment" },
+    { Game::QuestForGlory1, L"QuestForGlory1" },
+    { Game::QuestForGlory2, L"QuestForGlory2" },
+    { Game::QuestForGlory3, L"QuestForGlory3" },
+    { Game::QuestForGlory4, L"QuestForGlory4" }
+};
 }
+
+
+std::wstring ToString(Game game) {
+    auto found = gamesList.find(game);
+    if (found != gamesList.end())
+        return found->second;
+
+    throw std::runtime_error("Unreachable code reached");
+}
+
 std::optional<Game> ToType(const std::wstring& game) {
-	if (game == _T("LandsOfLore"))
-		return Game::LandsOfLore;
-	if (game == _T("BetrayalAtKrondor"))
-		return Game::BetrayalAtKrondor;
-	if (game == _T("PlanescapeTorment"))
-		return Game::PlanescapeTorment;
-	return std::nullopt;
+    auto found = std::find_if(gamesList.begin(), gamesList.end(), [&game] (const std::pair<Game, std::wstring>& pair) { return pair.second == game; });
+    if (found != gamesList.end())
+        return found->first;
+
+    return std::nullopt;
+}
+
+std::map<Game, std::wstring> allGames()
+{
+    return gamesList;
 }

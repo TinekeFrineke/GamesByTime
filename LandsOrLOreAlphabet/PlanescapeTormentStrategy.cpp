@@ -51,13 +51,6 @@ std::vector<IStrategy::SaveData> PlanescapeTormentStrategy::ListItemsInPath(cons
         }
     }
 
-    //auto directories(StrategyUtilities::DirectoriesInPath(path));
-    //std::vector<SaveData> saveData;
-    //for (auto directory : directories) {
-    //    if ()
-    //    saveData.push_back(std::make_pair(directory.cFileName))
-    //}
-
     std::sort(files.begin(), files.end(), [](const SaveHelper& lhs, const SaveHelper& rhs)
               { return lhs.time < rhs.time; });
 
